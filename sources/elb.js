@@ -1,6 +1,9 @@
+const log = require('debug')("lambdasource:sqs");
+
 export default {
-    isService: (event) => (event.requestContext && event.requestContext.elb),
+    isService: ({requestContext} = {}) => (requestContext && requestContext.elb),
     getRecords: (event) => {
+        log(event);
         if (!event) return [];
         const buff = (new Buffer(event.body, 'base64')).toString();
         return JSON.parse(buff || '[]');

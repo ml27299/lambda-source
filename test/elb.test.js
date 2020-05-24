@@ -1,7 +1,7 @@
 import LambdaSource from "lambda-source";
 import assert from "assert";
 
-import event from "./events/elb.json";
+import event from "../events/elb.json";
 
 describe("elb", function () {
     it("should get records", function (done) {
